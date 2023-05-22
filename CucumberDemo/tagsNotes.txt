@@ -1,0 +1,42 @@
+Today we will learn:
+1 - What are Tags
+2 - How to use Tags (Demo)
+3 - Useful Tips
+
+What are Tags in Cucumber
+Features and Scenarios can be marked with Tags
+Tags use @ symbol with some text e.g. @SmokeTest
+In the test runner we can run specific tags
+A feature or scenario can have multiple tags
+
+@smoke @regression @important
+Feature: Verify login
+
+Can run with single OR multiple Tags
+Can run with a combination of tags or using AND, OR conditions
+Can skip scenarios having specific Tag
+
+Step 1 - Create a new or use an existing Feature File
+Step 2 - Mark the feature and scenarios with Tags : @TagName
+Step 3 - Create new or use an existing TestRunner class
+Step 4 - Add the tags in CucumberOptions section
+
+
+Useful Tips - General
+Tags can be placed above the following Gherkin elements:
+Feature
+Scenario
+Scenario Outline
+Examples
+It is not possible to place tags above Background or steps (Given, When, Then, And and But)
+
+Useful Tips - Tags Inheritance
+Tags are inherited by child elements.
+Tags that are placed above a Feature will be inherited by Scenario, Scenario Outline, or Examples.
+Tags that are placed above a Scenario Outline will be inherited by Examples
+
+Useful Tips - Execution with Tags
+You can create and keep ready multiple TestRunner classes with different combination of Tags
+OR
+Create commands with tags combination as required to be run from the command line
+mvn test -Dcucumber.filter.tags="@smoke and @fast"
